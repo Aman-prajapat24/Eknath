@@ -1,0 +1,647 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.offcanvas {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.offcanvas .nav-link {
+    font-size: 1.1rem;
+    color: white;
+}
+
+.offcanvas .nav-link:hover {
+    color: #ff6600;
+}
+
+
+.navbar-toggler-icon:focus {
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+/* Toggle Button Style */
+.navbar-toggler {
+    background-color: transparent !important; /* White background remove */
+    
+    border-radius: 5px; /* Custom radius */
+    box-shadow: none !important; /* White glow remove */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-contact {
+  box-shadow:0px 6px 6px rgba(211, 16, 16, 0.957) ;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: #000;
+    
+}
+
+.Socialicons {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 20PX;
+  margin: 20px;
+  gap:10px;
+
+}
+
+
+.Address {
+text-align: center;
+  justify-content: space-between;
+
+}
+
+#homeSlider img {
+  block-size: 100vh; /* Full screen height */
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px 20px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  #homeSlider img {
+    block-size: 60vh;
+  }
+  .carousel-caption {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .offcanvas.offcanvas-start {
+    width: 400px;
+  }
+}
+@media (max-width: 425px) {
+     .offcanvas.offcanvas-start {
+    width: 300px;
+  }
+}
+
+.legacy-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+}
+
+.legacy-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b3232;
+    margin-block-end: 20px;
+}
+
+.legacy-text {
+    font-size: 1rem;
+    color: #333;
+    max-inline-size: 800px;
+    margin: 0 auto 30px auto;
+    line-height: 1.8;
+    text-align: justify;
+
+    /* Clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+
+
+
+
+
+/* Section heading */
+.world-of-eknath h2 {
+    font-weight: bold;
+    color: #16365c;
+}
+
+/* Image card styling */
+.image-card {
+    position: relative;
+    inline-size: 100%;
+    block-size: 250px; /* Fixed height for uniform look */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image-card img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover; /* Keeps image proportion while filling area */
+    display: block;
+}
+
+
+/* Overlay text on images - Top Center */
+.overlay-text {
+    position: absolute;
+    inset-block-start: 15px; /* top se gap */
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.futuristic-card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.futuristic-card img {
+    inline-size: 100%;
+    block-size: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.futuristic-card h4 {
+    margin-block-start: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.futuristic-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.learn-btn {
+    display: inline-block;
+    margin-block-start: 10px;
+    color: #7a9fc7;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.view-projects-btn {
+    display: inline-block;
+    background: #060a0f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .image-card {
+        block-size: 200px;
+    }
+    .overlay-text {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}
+
+
+  
+
+/* ===== Desktop Styles (Default) ===== */
+.logo {
+  position: absolute;
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-contact {
+  position: absolute;
+  inset-inline-end: 20px;
+  inset-block-start: 50%;
+  transform: translateY(-50%);
+}
+
+.offcanvas-body {
+  padding: 20px;
+}
+
+.nav-link {
+  font-size: 18px;
+  margin-block-end: 10px;
+}
+
+.Socialicons i {
+  font-size: 24px;
+}
+
+.Address p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ===== Mobile Styles ===== */
+
+/* Mobile view - sirf icon dikhana for navbar-contact */
+@media screen and (max-width: 576px) {
+    .navbar-contact .navbar-text {
+        font-size: 0; /* text hide */
+        color:rgb(177, 7, 41);;
+    }
+
+    .navbar-contact .navbar-text::before {
+        content: "📞"; /* sirf icon dikhana */
+        font-size: 22px;
+        background: none;
+        color:rgb(152, 15, 15);
+    }
+
+    .text-end {
+        text-align: center !important; /* mobile ke liye center */
+    }
+}
+
+/* Tablets and small desktops */
+@media (max-width: 768px) {
+    /* Logo */
+    .logo img {
+        block-size: 60px; /* block-size ki jagah height */
+    }
+
+    /* Navbar contact */
+    .navbar-contact {
+        font-size: 14px;
+        inset-inline-end: 10px; /* inset-inline-end ki jagah right */
+    }
+
+    /* Nav links font */
+    .nav-link {
+        font-size: 16px;
+    }
+
+    /* Social icons */
+    .Socialicons i {
+        font-size: 20px;
+        margin-inline-end: 10px;
+        color:#1d8a3a
+    }
+
+    /* Address */
+    .Address p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .Address img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Heading for real estate banner */
+    .headingforrealstate img {
+        background-size: cover;
+        inline-size: 100%;
+        block-size: 40vh; /* block-size ki jagah height */
+    }
+}
+
+/*--Our Project Start--*/
+.project-card {
+  min-inline-size: 250px;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  flex: 0 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.project-card img {
+  block-size: 300px;
+  object-fit: cover;
+}
+
+.card-img-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 15px;
+}
+
+.hide-scroll {
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@media (max-width: 768px) {
+  .project-card img {
+    block-size: 250px;
+  }
+}
+
+
+/*--Our Project End--*/
+
+
+
+/*--testimonials Start--*/
+
+.testimonials {
+      padding: 60px 0;
+    }
+
+    .elementor-testimonial {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      block-size: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .elementor-testimonial__text {
+      font-style: italic;
+      color: #555;
+      margin-block-end: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .elementor-testimonial__footer {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .elementor-testimonial__image img {
+      inline-size: 60px;
+      block-size: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .elementor-testimonial__cite .elementor-testimonial__name {
+      font-weight: bold;
+      display: block;
+    }
+
+    .elementor-testimonial__cite .elementor-testimonial__title {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .swiper {
+      inline-size: 90%;
+      max-inline-size: 1200px;
+      padding-block-end: 40px;
+    }
+/*--testimonials End--*/
+
+
+
+
+
+
+/* Footer Full Width & Responsive */
+.footer-section {
+    inline-size: auto;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    
+}
+
+.footer-container {
+    inline-size: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-col {
+    flex: 1 1 250px;
+    min-inline-size: 250px;
+    margin-block-end: 20px;
+}
+
+.footer-title {
+    font-weight: 600;
+    
+}
+
+
+
+/* Quick Links Styling */
+footer .list-unstyled {
+    list-style: none; /* Bullets remove */
+    padding-inline-start: 0;
+    margin: 0;
+}
+
+footer .list-unstyled li {
+    margin-block-end: 10px; /* Vertical spacing */
+}
+
+footer .list-unstyled li a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 0; /* Link ke andar space */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer .list-unstyled li a:hover {
+    color: #ffcc00; /* Hover color */
+    transform: translateX(5px); /* Thoda slide effect */
+}
+
+
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-block-end: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff9900;
+}
+
+
+
+
+.footer-bottom {
+    text-align: center;
+    margin-block-start: 30px;
+    font-size: 14px;
+}
+
+.footer-bottom-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-bottom-links a:hover {
+    color: #ff9900;
+}
+
+/* 🔹 Social Icons Style */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 40px;
+    block-size: 40px;
+    color: #13056d;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background-color: #8a601d; /* Hover background color */
+    color: #8e0b30; /* Hover text color */
+    transform: scale(1.1); /* Thoda zoom effect */
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap; /* kabhi wrap na ho */
+    overflow-x: hidden; /* scroll hatana */
+    white-space: nowrap; /* ek line me rakhe */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: clamp(0.75rem, 2vw, 1rem); /* responsive font size */
+    padding-block-end: 10px;
+}
+
+@media (max-width: 576px) {
+    .footer-bottom {
+        flex-wrap: wrap; /* mobile pe wrap allow karo */
+        text-align: center;
+    }
+    .footer-bottom p {
+        font-size: 0.75rem;
+        inline-size: 100%; /* har p full width le, ek niche ek */
+        margin: 2px 0;
+    }
+}
+
+
+/* 🔹 Footer Responsive Media Queries */
+
+
+@media (max-width: 1024px) {
+    footer .p-4 {
+        display: flex;
+        flex-wrap: nowrap; /* Wrap bilkul nahi hoga */
+        justify-content: center;
+        gap: 10px; /* Icons ke beech ka space */
+        
+    }
+    footer .social-icon {
+        inline-size: 40px;
+        block-size: 40px;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 992px) {
+    footer .col-lg-4 {
+        text-align: center;
+    }
+
+    footer img {
+        margin-block-end: 15px;
+    }
+
+    footer .social-icon {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer h5 {
+        font-size: 1.1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    footer .social-icon {
+        inline-size: 36px;
+        block-size: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    footer {
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    footer ul {
+        padding-inline-start: 0;
+    }
+
+    footer ul li {
+        margin: 5px 0;
+    }
+
+    footer .social-icon {
+        inline-size: 34px;
+        block-size: 34px;
+        font-size: 0.9rem;
+    }
+
+    footer .list-unstyled li {
+        margin-block-end: 8px;
+    }
+    footer .list-unstyled li a {
+        font-size: 0.95rem;
+    }
+}
