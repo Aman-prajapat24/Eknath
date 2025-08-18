@@ -183,7 +183,6 @@
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin: 30px 0;
     padding: 25px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -227,11 +226,9 @@
 /* Address Section */
 .Address {
     text-align: center;
-    padding: 25px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 0;
     background: transparent;
     border-radius: 0;
-    margin-top: auto;
 }
 
 .Address img {
@@ -507,24 +504,40 @@
 
 
 /* /////// About section start /////// */
-
 .legacy-section {
     position: relative;
-    background: url("./images/free-nature-images 7.jpg") center center / cover no-repeat;
-    min-height: 600px;
-    /* default desktop */
+    background-image: url("./images/about_img.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 800px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     padding: 60px 20px;
-    margin-top: 50px;
+    z-index: 1;
+    flex-direction: column;
+    /* mobile ke liye stack karne me madad */
+}
+
+/* ✅ overlay */
+.legacy-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+    border-radius: inherit;
 }
 
 .legacy-overlay {
+    position: relative;
     max-width: 900px;
     text-align: center;
     padding: 20px;
     border-radius: 10px;
+    z-index: 1;
 }
 
 .legacy-title {
@@ -545,8 +558,8 @@
 @media (max-width: 768px) {
     .legacy-section {
         min-height: 450px;
-        /* tablet height */
         padding: 40px 15px;
+        background-attachment: scroll;
     }
 
     .legacy-title {
@@ -561,9 +574,21 @@
 /* ✅ Mobile (≤ 425px) */
 @media (max-width: 425px) {
     .legacy-section {
-        min-height: 320px;
-        /* mobile height */
+        min-height: auto;
         padding: 30px 10px;
+        background: none;
+        /* background hatao */
+    }
+
+    /* background image ko niche dikhane ke liye pseudo element use */
+    .legacy-section::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 200px;
+        background: url("./images/about_img.jpg") center/cover no-repeat;
+        margin-top: 20px;
+        border-radius: 10px;
     }
 
     .legacy-title {
@@ -852,7 +877,7 @@
 /* /////// Testimonials section Start /////// */
 
 .testimonials {
-   margin: 50px 0;
+    margin: 50px 0;
     text-align: center;
 }
 
@@ -885,7 +910,7 @@
     padding: 30px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     width: 100%;
-    min-height: 280px;
+    min-height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -911,7 +936,6 @@
 
 .elementor-testimonial__content {
     flex-grow: 1;
-    margin-bottom: 25px;
     display: flex;
     align-items: center;
 }
@@ -925,7 +949,7 @@
     padding: 0 20px;
     display: flex;
     align-items: center;
-    min-height: 60px;
+    min-height: 40px;
 }
 
 .elementor-testimonial__text::before {
@@ -966,7 +990,6 @@
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #764ba2;
     transition: transform 0.3s ease;
 }
 
@@ -995,7 +1018,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-   
+
 
     .elementor-testimonial {
         padding: 30px;
@@ -1029,7 +1052,7 @@
         padding: 0 10px 10px;
     }
 
-   
+
     .elementor-testimonial {
         padding: 20px;
         border-radius: 12px;
@@ -1087,11 +1110,12 @@
     justify-content: center;
     padding: 0 15px;
     max-width: 1200px;
-    margin: 0 auto 50px auto; /* ✅ Center horizontally */
+    margin: 0 auto 50px auto;
+    /* ✅ Center horizontally */
 }
 
 .contact-wrapper h2 {
-   margin-bottom: 50px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -1100,8 +1124,10 @@
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 1200px; /* ✅ Keep content centered on desktop */
-    margin: 0 auto; /* ✅ Center horizontally */
+    max-width: 1200px;
+    /* ✅ Keep content centered on desktop */
+    margin: 0 auto;
+    /* ✅ Center horizontally */
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
@@ -1278,49 +1304,29 @@
 
 
 
+/* /////// Footer section start ////// */
 
-
-/* Footer Full Width & Responsive */
-.footer-section {
-    inline-size: auto;
+footer {
     background-color: #000;
     color: #fff;
-    padding: 20px;
-
+    padding: 40px 0 20px 0;
 }
 
-.footer-container { 
-    inline-size: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+/* Logo Section */
+.footer-logo {
+    max-width: 150px;
+    height: auto;
 }
-
-.footer-col {
-    flex: 1 1 250px;
-    min-inline-size: 250px;
-    margin-block-end: 20px;
-}
-
-.footer-title {
-    font-weight: 600;
-
-}
-
-
 
 /* Quick Links Styling */
 footer .list-unstyled {
     list-style: none;
-    /* Bullets remove */
-    padding-inline-start: 0;
+    padding: 0;
     margin: 0;
 }
 
 footer .list-unstyled li {
-    margin-block-end: 10px;
-    /* Vertical spacing */
+    margin-bottom: 10px;
 }
 
 footer .list-unstyled li a {
@@ -1328,181 +1334,373 @@ footer .list-unstyled li a {
     color: #ffffff;
     text-decoration: none;
     padding: 5px 0;
-    /* Link ke andar space */
-    transition: color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 footer .list-unstyled li a:hover {
     color: #ffcc00;
-    /* Hover color */
     transform: translateX(5px);
-    /* Thoda slide effect */
 }
 
-
-
-.footer-links {
-    list-style: none;
-    padding: 0;
+/* Company Description */
+.company-description {
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-.footer-links li {
-    margin-block-end: 10px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #fff;
-    transition: 0.3s;
-}
-
-.footer-links a:hover {
-    color: #ff9900;
-}
-
-
-
-
-.footer-bottom {
-    text-align: center;
-    margin-block-start: 30px;
-    font-size: 14px;
-}
-
-.footer-bottom-links a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.footer-bottom-links a:hover {
-    color: #ff9900;
-}
-
-
-
-
-.footer-bottom {
+/* Social Icons */
+.social-icons {
     display: flex;
-    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    flex-wrap: nowrap;
-    /* kabhi wrap na ho */
-    overflow-x: hidden;
-    /* scroll hatana */
-    white-space: nowrap;
-    /* ek line me rakhe */
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-icons a:hover {
+    background-color: #ffcc00;
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
 }
 
 .footer-bottom p {
     margin: 0;
-    font-size: clamp(0.75rem, 2vw, 1rem);
-    /* responsive font size */
-    padding-block-end: 10px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
-@media (max-width: 576px) {
-    .footer-bottom {
-        flex-wrap: wrap;
-        /* mobile pe wrap allow karo */
-        text-align: center;
-    }
-
-    .footer-bottom p {
-        font-size: 0.75rem;
-        inline-size: 100%;
-        /* har p full width le, ek niche ek */
-        margin: 2px 0;
-    }
+.footer-bottom a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
 }
 
-
-/* 🔹 Footer Responsive Media Queries */
-
-
-
-
-@media (max-width: 992px) {
-    footer .col-lg-4 {
-        text-align: center;
-    }
-
-    footer img {
-        margin-block-end: 15px;
-    }
-
-   
+.footer-bottom a:hover {
+    color: #ffcc00;
 }
 
+/* Section Headings */
+footer h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    position: relative;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #ffcc00;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    footer {
+        padding: 30px 0 15px 0;
+    }
+
+    footer .col-lg-4,
+    footer .col-md-6 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .footer-logo {
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+
+    .quick-links-col {
+        margin-top: -10px; /* logo aur quick links ke beech ka gap kam */
+    }
+
     footer h5 {
         font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    footer h5::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     footer p {
         font-size: 0.9rem;
     }
 
-  
+    .social-icons {
+        justify-content: center;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 425px) {
     footer {
         text-align: center;
         padding: 20px 10px;
     }
 
-    footer ul {
-        padding-inline-start: 0;
+    .footer-logo {
+        max-width: 120px;
+        display: block;
+        margin: 0 auto 15px auto;
     }
 
-    footer ul li {
-        margin: 5px 0;
+    .quick-links-col {
+        margin-top: -5px; /* aur thoda gap kam */
     }
 
- 
+    footer h5 {
+        font-size: 1rem;
+        margin-bottom: 12px;
+    }
 
     footer .list-unstyled li {
-        margin-block-end: 8px;
+        margin-bottom: 8px;
     }
 
     footer .list-unstyled li a {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        padding: 3px 0;
+    }
+
+    .company-description {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .footer-bottom {
+        margin-top: 20px;
+        padding-top: 12px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+
+    .social-icons {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .social-icons a {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
     }
 }
 
- .floating-icon {
-      position: fixed;
-      right: 20px;
-      background: #25D366; /* default whatsapp green */
-      color: #fff;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      cursor: pointer;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      z-index: 999;
-      text-decoration: none;
+
+
+
+
+/* /////// Footer section end ////// */
+
+
+
+
+/* ////// About page start ////// */
+
+.page-banner {
+    position: relative;
+    background: url('./images/headingimg.png') center/cover no-repeat;
+    block-size: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.page-banner .banner-content {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-block-end: 5px;
+}
+
+.page-banner .breadcrumb {
+    background: transparent;
+    justify-content: center;
+    padding: 0;
+    margin-block-end: 0;
+}
+
+.page-banner .breadcrumb-item a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.page-banner .breadcrumb-item.active {
+    color: #ffc107;
+}
+
+
+.company-section {
+    background: url('your-background.jpg') no-repeat center center/cover;
+    padding: 60px 20px;
+    color: #333;
+}
+
+.company-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.company-left {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.company-left img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.company-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.company-right h2 {
+    font-size: 28px;
+    color: #0b2c52;
+    margin-bottom: 20px;
+}
+
+.company-right h3 {
+    font-size: 22px;
+    margin: 15px 0 8px;
+    color: #b71c1c;
+}
+
+.company-right p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+@media (max-width: 768px) {
+    .company-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    .floating-icon:hover {
-      transform: scale(1.1);
+    .company-right {
+        text-align: center;
     }
 
-    /* WhatsApp Icon */
-    .whatsapp {
-      bottom: 90px; 
-      background: #25D366;
+    .company-right h2 {
+        font-size: 24px;
     }
+}
 
-    /* Call Icon */
-    .call {
-      bottom: 20px;
-      background: #0d6efd; /* blue */
+@media (max-width: 425px) {
+    .company-section {
+        padding-bottom: 0 !important;
     }
+}
+
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    background: url('./images/township.webp') no-repeat center/cover;
+}
+
+.cta-section .overlay-box {
+    background: rgba(255, 255, 255, 0.85);
+    inline-size: 80%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ////// About page end ////// */
+
+
+
+
+/* ////// floting icon start ////// */
+
+.floating-icon {
+    position: fixed;
+    right: 20px;
+    background: #25D366;
+    /* WhatsApp green */
+    color: #fff;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    z-index: 999;
+    text-decoration: none;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+}
+
+/* WhatsApp Icon Position */
+.whatsapp {
+    bottom: 20px;
+    /* screen ke bottom se gap */
+}
+
+/* ////// floting icon end ////// */
