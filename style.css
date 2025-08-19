@@ -16,6 +16,9 @@
 
 
 /*/////// Header section start ///////*/
+/* ===================== */
+/* ✅ Navbar */
+/* ===================== */
 header .navbar {
     padding: 20px 20px;
     background-color: transparent !important;
@@ -32,28 +35,73 @@ header .navbar.scrolled {
 header .navbar .container-fluid {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* toggle left, logo center, contact right */
     position: relative;
     max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0 20px !important; /* equal spacing left & right */
 }
 
-/* Toggle Button - Left */
+/* ===================== */
+/* ✅ Toggle Button */
+/* ===================== */
 header .navbar-toggler {
     background-color: transparent !important;
     border: none !important;
-    border-radius: 5px;
     box-shadow: none !important;
-    padding: 4px 8px;
+    padding: 6px 10px;
     flex: 0 0 auto;
+    position: relative;
+    z-index: 20;
+    cursor: pointer;
 }
 
+/* Hamburger Lines */
 header .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    display: block;
+    position: relative;
+    width: 26px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
 }
 
-/* Logo - Center */
+header .navbar-toggler-icon::before,
+header .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+header .navbar-toggler-icon::before {
+    top: -7px;
+}
+
+header .navbar-toggler-icon::after {
+    top: 7px;
+}
+
+/* Hamburger → X animation */
+.navbar-toggler.active .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler.active .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* ===================== */
+/* ✅ Logo */
+/* ===================== */
 header .logo {
     position: absolute;
     left: 50%;
@@ -66,18 +114,23 @@ header .logo img {
     transition: height 0.3s ease;
 }
 
-/* Contact - Right */
+/* ===================== */
+/* ✅ Contact (Phone) */
+/* ===================== */
 header .navbar-contact {
-
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ✅ content center aligned */
+    min-width: 40px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    padding: 8px 12px;
-    flex: 0 0 auto;
-    transition: all 0.3s ease;
+    padding: 6px 12px;
+    margin-left: auto; /* ensure right align */
+    text-align: center;
 }
 
 header .navbar-contact:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
@@ -85,9 +138,23 @@ header .navbar-contact .navbar-text {
     color: white !important;
     font-weight: bold;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* ✅ text + icon perfectly center */
+    gap: 6px;
+    font-size: 16px;
 }
 
-/* Offcanvas Sidebar */
+header .navbar-contact .navbar-text::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    content: "\f095"; /* phone icon */
+    font-size: 18px;
+}
+
+/* ===================== */
+/* ✅ Offcanvas Sidebar */
+/* ===================== */
 header .offcanvas {
     background: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(25px);
@@ -108,10 +175,8 @@ header .navbar-nav {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-   
-    flex-grow: 0 !important; /* 👈 yeh line add karein */
+    flex-grow: 0 !important;
 }
-
 
 header .nav-item {
     margin-bottom: 10px;
@@ -151,15 +216,9 @@ header .nav-link {
     font-size: 18px;
     color: var(--white-color) !important;
     padding: 8px 20px;
-    border: none;
-    border-radius: 0;
     transition: all 0.4s ease;
     position: relative;
-    display: block;
     text-align: center;
-    background: transparent;
-    backdrop-filter: none;
-    overflow: hidden;
 }
 
 header .nav-link::after {
@@ -181,75 +240,58 @@ header .nav-link:hover::after {
 header .nav-link:hover {
     color: var(--primary-color) !important;
     transform: translateY(-2px) scale(1.05);
-    text-shadow: 0 0 10px rgba(15, 77, 92, 0.4);
 }
 
 header .nav-link.text-danger {
     color: var(--primary-color) !important;
 }
 
-header .nav-link.text-danger::after {
-    width: 80%;
-}
-
-/* Social Icons */
-.social-icons {
+/* ===================== */
+/* ✅ Social Icons */
+/* ===================== */
+header .social-icons {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 22px;
+    align-items: center;
     padding: 25px 0;
     border-top: 1px solid rgba(15, 77, 92, 0.4);
     border-bottom: 1px solid rgba(15, 77, 92, 0.4);
 }
 
-.social-icons a {
-    color: var(--white-color);
-    font-size: 24px;
-    transition: all 0.4s ease;
-    padding: 12px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    position: relative;
-    overflow: hidden;
+header .social-icons a {
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #0f4c5c;
+    font-size: 22px;
+    text-decoration: none;
 }
 
-.social-icons a::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(255, 102, 0, 0.2) 0%, transparent 70%);
-    transition: all 0.4s ease;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    z-index: -1;
+header .social-icons a:hover {
+    background: #0f4c5c;
+    color: #ffffff;
+    transform: translateY(-4px);
 }
 
-.social-icons a:hover::before {
-    width: 50px;
-    height: 50px;
-}
-
-.social-icons a:hover {
-    color: var(--primary-color);
-    transform: translateY(-3px) scale(1.1);
-}
-
-/* Address Section */
+/* ===================== */
+/* ✅ Address Section */
+/* ===================== */
 header .Address {
     text-align: center;
     padding: 15px 0;
-    background: transparent;
-    border-radius: 0;
 }
 
 header .Address img {
-    width: 70px;
-    opacity: 0.7;
+    width: 65px;
+    opacity: 0.8;
     transition: all 0.3s ease;
-    filter: none;
 }
 
 header .Address img:hover {
@@ -260,45 +302,41 @@ header .Address img:hover {
 header .Address p {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
     margin: 0;
     padding-top: 8px;
-    text-shadow: none;
 }
 
-/* Responsive Design */
+/* ===================== */
+/* ✅ Responsive Design */
+/* ===================== */
 
-/* Tablet - 768px */
+/* Tablet */
 @media (max-width: 768px) {
-    header .navbar {
-        padding: 10px 15px;
-    }
-
     header .logo img {
         height: 60px;
     }
 
-    header .navbar-contact {
+    header .navbar-contact .navbar-text {
         font-size: 14px;
-        padding: 6px 10px;
     }
 
-    header .offcanvas.offcanvas-start {
-        width: 350px;
+    header .navbar-toggler-icon,
+    header .navbar-toggler-icon::before,
+    header .navbar-toggler-icon::after {
+        width: 24px;
     }
 
-    header .nav-link {
-        font-size: 16px;
-        padding: 12px 15px;
+    header .social-icons {
+        gap: 18px;
     }
 
-    .social-icons {
-        gap: 20px;
-    }
-
-    .social-icons a {
+    header .social-icons a {
         font-size: 20px;
-        padding: 10px;
+        padding: 9px;
+    }
+
+    header .Address img {
+        width: 55px;
     }
 
     header .Address p {
@@ -306,70 +344,87 @@ header .Address p {
     }
 }
 
-/* Mobile - 425px and below */
+/* Mobile */
 @media (max-width: 425px) {
-    header .navbar {
-        padding: 10px 10px;
-    }
-
     header .logo img {
         height: 50px;
     }
 
-    header .navbar-contact .navbar-text {
-        font-size: 0;
+    header .navbar-contact {
+        padding: 6px;
+        min-width: 36px;
+        height: 36px;
+    }
+
+   header .navbar-contact .navbar-text {
+        font-size: 0 !important; /* hide number */
+        line-height: 0;
     }
 
     header .navbar-contact .navbar-text::before {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 700;
-        /* solid icons के लिए */
-        content: "\f095";
-        /* phone icon का unicode */
-        font-size: 20px;
-        color: white;
-        margin-right: 8px;
+        font-size: 20px; /* icon center */
+        line-height: 1;
     }
 
-
-    header .offcanvas.offcanvas-start {
-        width: 280px;
+    header .navbar-toggler-icon,
+    header .navbar-toggler-icon::before,
+    header .navbar-toggler-icon::after {
+        width: 22px;
     }
 
-    header .nav-link {
-        font-size: 15px;
-        padding: 12px 15px;
+    header .social-icons {
+        gap: 15px;
     }
 
-    .social-icons {
-        gap: 25px;
-    }
-
-    .social-icons a {
+    header .social-icons a {
         font-size: 18px;
         padding: 8px;
     }
 
-    
+    header .Address img {
+        width: 50px;
+    }
+
+    header .Address p {
+        font-size: 11px;
+    }
+
+    header .offcanvas.offcanvas-start {
+        width: 80% !important; /* 80% width on mobile */
+        max-width: 300px;
+    }
 }
 
 /* Very small screens */
 @media (max-width: 320px) {
-    header .offcanvas.offcanvas-start {
-        width: 250px;
+    header .navbar-toggler-icon,
+    header .navbar-toggler-icon::before,
+    header .navbar-toggler-icon::after {
+        width: 20px;
+    }
+
+    header .social-icons a {
+        font-size: 16px;
+        padding: 7px;
+    }
+
+    header .Address img {
+        width: 45px;
     }
 }
 
-/* Overlay for better backdrop */
-header .offcanvas-backdrop {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-}
-
-/* ✅ Fix for logo & contact shifting */
+/* ===================== */
+/* ✅ Fix: no shifting on sidebar open */
+/* ===================== */
 body.offcanvas-open {
     overflow: hidden !important;
     padding-right: 0 !important;
 }
+
+header .navbar.fixed-top {
+    padding-right: 0 !important;
+}
+
 
 /*/////// Header section end ///////*/
 
@@ -602,7 +657,7 @@ body.offcanvas-open {
         min-height: auto;
         padding: 0 10px;
         background: none;
-       
+
         /* background hatao */
     }
 
@@ -1198,7 +1253,8 @@ body.offcanvas-open {
 .contact_us .contact-details .icon {
     width: 40px;
     height: 40px;
-    background: var(--white-color); /* ✅ square bg like screenshot */
+    background: var(--white-color);
+    /* ✅ square bg like screenshot */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1206,12 +1262,16 @@ body.offcanvas-open {
     border-radius: 2px;
     font-size: 18px;
     color: var(--primary-color);
-    transition: all 0.3s ease; /* smooth hover */
+    transition: all 0.3s ease;
+    /* smooth hover */
 }
+
 .contact_us .contact-details .icon:hover {
-    background: var(--white-color); /* थोड़ा dark hover */
+    background: var(--white-color);
+    /* थोड़ा dark hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px); /* हल्का ऊपर उठे */
+    transform: translateY(-3px);
+    /* हल्का ऊपर उठे */
     color: var(--secondary-color);
 }
 
@@ -1330,7 +1390,8 @@ body.offcanvas-open {
 footer {
     background-color: var(--white-color);
     color: var(--primary-color);
-    padding: 40px 0 0 0; /* bottom padding 0 kyunki footer-bottom alag hai */
+    padding: 40px 0 0 0;
+    /* bottom padding 0 kyunki footer-bottom alag hai */
 }
 
 /* Logo Section */
@@ -1373,7 +1434,8 @@ footer .list-unstyled li a:hover {
 /* Social Icons */
 .social-icons {
     display: flex;
-    gap: 20px; /* increased from 15px */
+    gap: 20px;
+    /* increased from 15px */
 }
 
 .social-icons a {
@@ -1523,7 +1585,7 @@ footer h5::after {
     }
 
     .footer-bottom {
-       
+
         padding-top: 20px;
     }
 
@@ -1532,7 +1594,8 @@ footer h5::after {
     }
 
     .social-icons {
-        gap: 14px; /* increased from 8px */
+        gap: 14px;
+        /* increased from 8px */
     }
 
     .social-icons a {
@@ -1687,12 +1750,13 @@ footer h5::after {
     padding: 20px;
     border-radius: 10px;
 }
+
 .cta-section h2 {
     color: var(--secondary-color);
 }
 
 .cta-section .btn {
-       display: inline-block;
+    display: inline-block;
     background: var(--primary-color);
     color: var(--white-color);
     padding: 10px 20px;
@@ -1701,6 +1765,7 @@ footer h5::after {
     font-weight: 600;
     transition: background 0.3s;
 }
+
 .cta-section .btn:hover {
     background-color: var(--secondary-color);
 }
